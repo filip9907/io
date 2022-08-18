@@ -10,7 +10,7 @@ efects::efects(bool tak) {
 		switch (filter_name)
 		{
 		case 1:
-
+			
 		case 2:
 		case 3:
 		
