@@ -27,6 +27,9 @@
     <ClInclude Include="filter_min.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="filter_add.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="image_filtering.cpp">

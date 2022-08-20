@@ -4,6 +4,7 @@
 #include "filter_median.h"
 #include "filter_min.h"
 #include "filter_max.h"
+#include "filter_add.h"
 #include <sstream>
 
 using namespace std;
@@ -30,18 +31,18 @@ int main(int argc, char** argv)
         cout << "\nType in name file: ";
         cin >> name;
         operation = -1;
-        while (operation < 0 || operation>7)
+        while (operation < 0 || operation>8)
         {
-            cout << "\nPlease select operation:\n0. new filter\n1. average\n2. highpass\n3. lowpass\n4. median\n5. detect edge\n6. min\n7. max" << endl;
+            cout << "\nPlease select operation:\n0. new filter\n1. average\n2. highpass\n3. lowpass\n4. median\n5. detect edge\n6. min\n7. max\n8. add" << endl;
             cin >> operation;
         }
         cout << "\nType in size of matrix (must be odd): ";
         cin >> size;
     }
 
-    while (operation < 0 || operation>7)
+    while (operation < 0 || operation>8)
     {
-        cout << "\nPlease select operation:\n0. new filter\n1. average\n2. highpass\n3. lowpass\n4. median\n5. detect edge\n6. min\n7. max" << endl;
+        cout << "\nPlease select operation:\n0. new filter\n1. average\n2. highpass\n3. lowpass\n4. median\n5. detect edge\n6. min\n7. max\n8. add" << endl;
         cin >> operation;
     }
 
@@ -172,6 +173,24 @@ int main(int argc, char** argv)
         Mat lena1 = nowy.Filter(img);
         namedWindow("after filtering", WINDOW_NORMAL);
         imshow("after filtering", lena1);
+    }
+    else if (operation == 8)
+    {
+    int rv, gv, bv;
+    cout << "\nSelected operation: add" << endl;
+    cout << "\nRed value: ";
+    cin >> rv;
+    cout << "\nGreen value: ";
+    cin >> gv;
+    cout << "\nBlue value: ";
+    cin >> bv;
+    filter_add nowy(rv, gv, bv);
+    Mat img = imread(name);
+    namedWindow("before filtering", WINDOW_NORMAL);
+    imshow("before filtering", img);
+    Mat lena1 = nowy.Filter(img);
+    namedWindow("after filtering", WINDOW_NORMAL);
+    imshow("after filtering", lena1);
     }
     else
     {
