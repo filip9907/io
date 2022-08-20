@@ -1,5 +1,8 @@
-﻿  efects.cpp
+﻿  blackandwhite.cpp
+  efects.cpp
   main.cpp
-C:\Users\lenovo\Documents\GitHub\test2\io\Program_graficzny\main.cpp(2,9): warning C4067: nieoczekiwane tokeny występujące po dyrektywie preprocesora - oczekiwano nowego wiersza
+C:\Users\lenovo\Documents\GitHub\test2\io\Program_graficzny\main.cpp(9,10): error C2352: „efects::moc_filtra”: Niedozwolone wywołanie niestatycznej funkcji składowej
+C:\Users\lenovo\Documents\GitHub\test2\io\Program_graficzny\efects.h(11): message : zobacz deklarację „efects::moc_filtra”
+  menu.cpp
   Generowanie kodu...
-C:\Users\lenovo\Documents\GitHub\test2\io\Program_graficzny\efects.cpp(10): error C4700: użycie niezainicjowanej zmiennej lokalnej "filter_name"
+C:\Users\lenovo\Documents\GitHub\test2\io\Program_graficzny\efects.cpp(34): error C4716: "efects::moc_filtra": musi zwracać wartość
