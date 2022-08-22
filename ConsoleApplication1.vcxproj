@@ -24,9 +24,11 @@
     <ClInclude Include="filter_max.h" />
     <ClInclude Include="filter_median.h" />
     <ClInclude Include="filter_min.h" />
+    <ClInclude Include="load.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="image_filtering.cpp" />
+    <ClCompile Include="testujemywczytywanie.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
@@ -144,6 +146,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>C:\opencv\build\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
