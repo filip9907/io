@@ -10,7 +10,7 @@
 using namespace std;
 using namespace cv;
 
-int main(int argc, char** argv)
+int eeee(int argc, char** argv)
 {
     int operation; // zmienna wyboru trybu operacji
     string name; // zmienna wyboru wczytywanego pliku graficznego

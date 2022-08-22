@@ -24,7 +24,7 @@
 //if filter specajlny -> koniec (sam sie wypelnia jedynkami)
 //>
 namespace fs = std::filesystem;
-int read()
+int main()
 {
     const fs::path sandbox{ "sandbox" };
     fs::create_directories(sandbox / "dir1" / "dir2");
@@ -37,4 +37,5 @@ int read()
     {
         std::cout << dir_entry.path() << '\n';
     }
+    return 0;
 }
