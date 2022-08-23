@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="filter.h" />
+    <ClInclude Include="filters.h" />
     <ClInclude Include="filter_add.h" />
     <ClInclude Include="filter_max.h" />
     <ClInclude Include="filter_median.h" />
