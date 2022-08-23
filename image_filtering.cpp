@@ -17,7 +17,7 @@ int main()
     string name; // zmienna wyboru wczytywanego pliku graficznego
     cout << "\nType in name file: ";
     cin >> name;
-    vector<filter*> filtry;
+    vector<filters*> filtry;
     filtry = load();
     try
     {
@@ -39,7 +39,17 @@ int main()
     imshow("before filtering", img); // otwarcie w nim obrazka oryginalnego
     for (int i = 0; i < filtry.size(); i++)
     {
-        Mat lena1 = filtry[i]->Filter(img); // stworzenie przefiltrowanego obrazka
+        Mat lena1;
+        if (filtry[i]->filter != nullptr)
+            lena1 = filtry[i]->filter->Filter(img);
+        else if (filtry[i]->filter_add != nullptr)
+            lena1 = filtry[i]->filter_add->Filter(img);
+        else if (filtry[i]->filter_min != nullptr)
+            lena1 = filtry[i]->filter_min->Filter(img);
+        else if (filtry[i]->filter_median != nullptr)
+            lena1 = filtry[i]->filter_median->Filter(img);
+        else if (filtry[i]->filter_max != nullptr)
+            lena1 = filtry[i]->filter_max->Filter(img);
         namedWindow("after filtering", WINDOW_NORMAL); // otworzenie okna w ktorym bedzie wyswietlony przefiltrowany obrazek
         string aft = "after filtering" + i;
         imshow(aft, lena1); // wyswietlenie obrazka przefiltrowanego
