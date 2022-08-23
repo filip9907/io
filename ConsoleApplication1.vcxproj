@@ -20,16 +20,15 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="filter.h" />
-    <ClInclude Include="filters.h" />
     <ClInclude Include="filter_add.h" />
     <ClInclude Include="filter_max.h" />
     <ClInclude Include="filter_median.h" />
     <ClInclude Include="filter_min.h" />
+    <ClInclude Include="filters.h" />
     <ClInclude Include="load.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="image_filtering.cpp" />
-    <ClCompile Include="testujemywczytywanie.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

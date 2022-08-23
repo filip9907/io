@@ -5,11 +5,50 @@
 #include "filter_min.h"
 #include "filter_max.h"
 #include "filter_add.h"
+#include "load.h"
 #include <sstream>
-
+#include <vector>
+#include <filesystem>
 using namespace std;
 using namespace cv;
 
+int main()
+{
+    string name; // zmienna wyboru wczytywanego pliku graficznego
+    cout << "\nType in name file: ";
+    cin >> name;
+    vector<filter*> filtry;
+    filtry = load();
+    try
+    {
+        Mat img = imread(name); // macierz przechowujaca probny odczytany obrazek
+        namedWindow("image1", WINDOW_NORMAL); // okno wyswietlajace odczytany obrazek
+        imshow("image1", img); // wyswietlenie obrazka
+        destroyWindow("image1"); // usuniecie probnego okna
+    }
+    catch (cv::Exception& e)
+    {
+        const char* err_msg = e.what(); // zmienna przechowujaca opis wyjatku
+        std::cout << "\nException caught: " << err_msg << std::endl; // wyswietlenie wyjatku
+        waitKey(0);
+        exit(-1);
+    }
+    
+    Mat img = imread(name); // wczytanie obrazka o podanej nazwie
+    namedWindow("before filtering", WINDOW_NORMAL); // otwarcie okna przed filtrowaniem
+    imshow("before filtering", img); // otwarcie w nim obrazka oryginalnego
+    for (int i = 0; i < filtry.size(); i++)
+    {
+        Mat lena1 = filtry[i]->Filter(img); // stworzenie przefiltrowanego obrazka
+        namedWindow("after filtering", WINDOW_NORMAL); // otworzenie okna w ktorym bedzie wyswietlony przefiltrowany obrazek
+        string aft = "after filtering" + i;
+        imshow(aft, lena1); // wyswietlenie obrazka przefiltrowanego
+
+    }
+    waitKey(0);
+    return 0;
+}
+/*
 int eeee(int argc, char** argv)
 {
     int operation; // zmienna wyboru trybu operacji
@@ -201,3 +240,4 @@ int eeee(int argc, char** argv)
     return 0;
 }
 
+*/
