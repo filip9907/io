@@ -25,6 +25,7 @@
     <ClInclude Include="filter_median.h" />
     <ClInclude Include="filter_min.h" />
     <ClInclude Include="filters.h" />
+    <ClInclude Include="image.h" />
     <ClInclude Include="load.h" />
   </ItemGroup>
   <ItemGroup>

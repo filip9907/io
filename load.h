@@ -31,6 +31,7 @@
 
 struct filters
 {
+    string filter_name;
     filter *filter;
     filter_add *filter_add;
     filter_min *filter_min;
@@ -64,7 +65,7 @@ vector<filters*> load()
         }
         if (wektor[0] == 0)
         {
-            filtry.emplace_back(new filters{ new filter(wektor[1]), nullptr, nullptr, nullptr, nullptr });
+            filtry.emplace_back(new filters{fs::path(dir_entry.path()).stem().string(), new filter(wektor[1]), nullptr, nullptr, nullptr, nullptr});
             //  cout << *i << " ";
             for (int i = 0; i < wektor[1]; i++)
             {
@@ -77,19 +78,19 @@ vector<filters*> load()
         }
         else if (wektor[0] == 1)
         {
-            filtry.emplace_back(new filters{nullptr, new filter_add(wektor[1], wektor[2], wektor[3]), nullptr, nullptr, nullptr });
+            filtry.emplace_back(new filters{ fs::path(dir_entry.path()).stem().string(), nullptr, new filter_add(wektor[1], wektor[2], wektor[3]), nullptr, nullptr, nullptr });
         }
         else if (wektor[0] == 2)
         {
-            filtry.emplace_back(new filters{nullptr, nullptr, new filter_min(wektor[1]), nullptr, nullptr });
+            filtry.emplace_back(new filters{ fs::path(dir_entry.path()).stem().string(), nullptr, nullptr, new filter_min(wektor[1]), nullptr, nullptr });
         }
         else if (wektor[0] == 3)
         {
-            filtry.emplace_back(new filters{ nullptr, nullptr, nullptr, new filter_median(wektor[1]), nullptr });
+            filtry.emplace_back(new filters{ fs::path(dir_entry.path()).stem().string(),  nullptr, nullptr, nullptr, new filter_median(wektor[1]), nullptr });
         }
         else if (wektor[0] == 4)
         {
-            filtry.emplace_back(new filters{ nullptr, nullptr, nullptr, nullptr, new filter_max(wektor[1])});
+            filtry.emplace_back(new filters{ fs::path(dir_entry.path()).stem().string(),  nullptr, nullptr, nullptr, nullptr, new filter_max(wektor[1])});
         }
 
         aktualny++;
