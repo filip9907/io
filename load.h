@@ -92,6 +92,8 @@ vector<filters*> load()
         {
             filtry.emplace_back(new filters{ fs::path(dir_entry.path()).stem().string(),  nullptr, nullptr, nullptr, nullptr, new filter_max(wektor[1])});
         }
+        else
+            filtry.emplace_back(new filters{ fs::path(dir_entry.path()).stem().string(),  nullptr, nullptr, nullptr, nullptr, nullptr });
 
         aktualny++;
     }

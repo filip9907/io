@@ -109,9 +109,9 @@ public:
 
 	void undo_current_img() // 2/4 dodajemy aktualny obrazek na stack redo, ustawiamy poprzedni obrazek jako aktualny, usuwamy obrazek ze stacku undo
 	{
-		if (undo_history.size() == 0)
+		if (undo_history.size() < 1)
 			return;
-		add_to_redo_history(current_img);
+		add_to_redo_history(this->get_current_img());
 		set_current_img(undo_history.vector::back());
 		remove_from_undo_history();
 		add_to_redo_filter_history(filters_history.vector::back());
@@ -120,9 +120,9 @@ public:
 
 	void redo_current_img() // 3/4 dodajemy aktualny obrazek na stack undo, ustawiamy "nastepny" obrazek jako aktualny, usuwamy obrazek ze stacku redo
 	{
-		if (redo_history.size() == 0)
+		if (redo_history.size() < 1)
 			return;
-		add_to_undo_history(current_img);
+		add_to_undo_history(this->get_current_img());
 		set_current_img(redo_history.vector::back());
 		remove_from_redo_history();
 		add_to_filters_history(filters_redo_history.vector::back());
